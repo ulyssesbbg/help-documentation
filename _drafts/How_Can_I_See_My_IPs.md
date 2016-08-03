@@ -1,18 +1,19 @@
 Q. How do I know how many IPs I have left, and what IP ranges are currently available?
 
-A. You can follow the examples below to find out the availability of IPs.
+A. You can follow the examples below to find your current IP ranges and availability:
 
 ```
-#First find the network id for each of the networks
-> neutron net-list | egrep "external|internal"| 
-0d13276b-c364-443a-9217-4af45e9e38f1 | external     | 
+#Find the network id for each of the networks (these are example networks)
+> neutron net-list | egrep "external|internal"
+| 0d13276b-c364-443a-9217-4af45e9e38f1 | external     | 
 46f82bc8-d180-46dd-9914-8733eddae793 159.122.122.160/27 | #this is the subnet_id for the external network
 | ef5fb554-5e9b-4ab6-9fb4-0711c3c91e39 | internal  | 
 75f80035-fed4-4e17-9b2f-ab76143f95eb 192.168.0.0/22     | #this is the subnet_id for the internal network
 
-#First enter the network_id of the external network:
+#Enter the network_id of the external network:
 > neutron net-ip-availability-show 0d13276b-c364-443a-9217-4af45e9e38f1
-#You should get back something like this:
+
+#You will get back something like this:
 +——————————---—---      —+————————————————————————————————————————————————————---—————+
 | Field                  |      Value                                                 |
 +—————————--------------—+   —————————————————————————————————————————————————————————+
@@ -34,7 +35,8 @@ A. You can follow the examples below to find out the availability of IPs.
 
 #Next enter the network_id of the internal network
 > neutron net-ip-availability-show ef5fb554-5e9b-4ab6-9fb4-0711c3c91e39
-#You should get back something like this:
+
+#You will get back something like this:
 +------------------------+-------------------------------------------------------------------------------------------------+
 | Field                  | Value                                                                                           |
 +------------------------+-------------------------------------------------------------------------------------------------+
