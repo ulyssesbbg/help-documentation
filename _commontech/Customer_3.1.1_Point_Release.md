@@ -19,12 +19,12 @@ This 3.1.1 Point Release is created primarily to fix some bugs that were affecti
 
 #### Bug Fixes Related to Curated Images
  
- * **248875** CentOS 6.8 20160910 image: only 2.1G disk space is seen in VM while the flavor has 10G disk [https://jazzop27.rtp.raleigh.ibm.com:9443/ccm/web/projects/BlueBox%20Cloud#action=com.ibm.team.workitem.viewWorkItem&id=248875]
- * **249988** Windows images assume that hardware clock is set to local timezone instead of UTC [https://jazzop27.rtp.raleigh.ibm.com:9443/ccm/web/projects/BlueBox%20Cloud#action=com.ibm.team.workitem.viewWorkItem&id=249988]
+ * CentOS 6.8 20160910 image: only 2.1G disk space is seen in VM while the flavor has 10G disk 
+ * Windows images assume that hardware clock is set to local timezone instead of UTC
  
 #### Corrections to Customer-facing RBAC Documentation
 
- * **251310** [Glance_RBAC] `cloud_admin` can publicize image [https://jazzop27.rtp.raleigh.ibm.com:9443/ccm/web/projects/BlueBox%20Cloud#action=com.ibm.team.workitem.viewWorkItem&id=251310]
- * **239943** [bbc238_RBAC] `member` is allowed to list project [https://jazzop27.rtp.raleigh.ibm.com:9443/ccm/web/projects/BlueBox%20Cloud#action=com.ibm.team.workitem.viewWorkItem&id=239943]
- * **252259** [Swift_RBAC] `member` could create container [https://jazzop27.rtp.raleigh.ibm.com:9443/ccm/web/projects/BlueBox%20Cloud#action=com.ibm.team.workitem.viewWorkItem&id=252259]
- * **260704** [Nova_RBAC] `cloud_admin` is allowed to get host [https://jazzop27.rtp.raleigh.ibm.com:9443/ccm/web/projects/BlueBox%20Cloud#action=com.ibm.team.workitem.viewWorkItem&id=260704]
+ * [Glance_RBAC] `cloud_admin` can publicize image 
+ * [bbc238_RBAC] `member` is allowed to list project
+ * [Swift_RBAC] `member` could create container 
+ * [Nova_RBAC] `cloud_admin` is allowed to get host
