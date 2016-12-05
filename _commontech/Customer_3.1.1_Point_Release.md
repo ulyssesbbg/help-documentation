@@ -5,8 +5,8 @@ author: Leslie Lundquist
 featured: true
 dateAdded: December 16, 2016
 tags: [release notes, 3.1.1]
----
 
+---
 
 ### IBM Bluemix Private Cloud Customer
 
