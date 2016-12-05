@@ -26,5 +26,5 @@ This 3.1.1 Point Release is created primarily to fix some bugs that were affecti
 
  * **251310** [Glance_RBAC] `cloud_admin` can publicize image [https://jazzop27.rtp.raleigh.ibm.com:9443/ccm/web/projects/BlueBox%20Cloud#action=com.ibm.team.workitem.viewWorkItem&id=251310]
  * **239943** [bbc238_RBAC] `member` is allowed to list project [https://jazzop27.rtp.raleigh.ibm.com:9443/ccm/web/projects/BlueBox%20Cloud#action=com.ibm.team.workitem.viewWorkItem&id=239943]
- * **252259** [swift_RBAC] `member` could create container [https://jazzop27.rtp.raleigh.ibm.com:9443/ccm/web/projects/BlueBox%20Cloud#action=com.ibm.team.workitem.viewWorkItem&id=252259]
+ * **252259** [Swift_RBAC] `member` could create container [https://jazzop27.rtp.raleigh.ibm.com:9443/ccm/web/projects/BlueBox%20Cloud#action=com.ibm.team.workitem.viewWorkItem&id=252259]
  * **260704** [Nova_RBAC] `cloud_admin` is allowed to get host [https://jazzop27.rtp.raleigh.ibm.com:9443/ccm/web/projects/BlueBox%20Cloud#action=com.ibm.team.workitem.viewWorkItem&id=260704]
