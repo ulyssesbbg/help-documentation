@@ -15,7 +15,7 @@ author: Nithya Renganathan
 * [Managing Mappings](#managing_mappings)
 * [Using Horizon](#using_horizon)
 * [Using OAuth API](#using_oauth_api)
-
+* [Additional Notes](#additional_notes)
 
 ## <a name="what_is_keystone_federation?"></a>What is Federation?
 Keystone federation enables identities from an Identity Provider (IDP) to be used on a Service Provider (SP). The different protocols and formats supported are OpenIDConnect (OIDC) and Security Assertion Markup Language (SAML).
@@ -515,3 +515,25 @@ def main():
 if __name__ == '__main__':
     main()
 ```
+
+## <a name="additional_notes"></a>Additional Notes
+
+Currently an issue exists with federated users and with the trustor/trustee feature in Keystone, which prevents
+the federated Heat user from delegating their `heat_stack_owner` role.
+
+You'll need to use a workaround for the trust delegation by assigning the `heat_stack_owner` role to the user directly. This is the user that is
+created during federated log in. The user's domain is federated, and it could have the value of **None** (`Federation=None`).
+
+```
+$ openstack user list
+```
+The federated user should have a domain of None: `openstack user show <federated user>`
+
+Here we require the user ID:
+
+```
+$ openstack role add heat_stack_owner --user <federated user ID> --project <project>
+```
+
+Another known issue is that a federated user is presented with the option to change
+their password in the settings page. They will not be able to change their password.

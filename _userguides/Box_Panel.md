@@ -152,7 +152,7 @@ Step 8. If your deployment is for a new cloud, check the **Deployment** box.
 
 **Using Your Support Ticket**
 
-Anytime after a ticket is created, you can see the text associated with that ticket, by clicking on that support ticket from your Dashboard. The ticket's text may include references to other tickets, as well as chat history and any correspondence related to your selected ticket. The status of your support ticket is highlighted on the orange button in the top left corner. Status indicators include OPEN, PENDING COMPLETION, PARKED, and so forth.
+Anytime after a ticket is created, you can see the text associated with that ticket, by clicking on that support ticket from your Dashboard. The ticket's text may include references to other tickets, as well as chat history and any correspondence related to your selected ticket. The status of your support ticket is highlighted in the top right corner. Status indicators include OPEN, PENDING COMPLETION, PARKED, and so forth.
 
 ![ ](http://ibm-blue-box-help.github.io/help-documentation/img/ticket_status.jpg)
 

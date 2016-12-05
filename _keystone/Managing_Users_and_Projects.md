@@ -55,7 +55,7 @@ Create project  | Y | N | N
 Update project  | Y | Y | N
 Get project     | Y | Y | Y
 Delete project  | Y | N | N
-List projects   | Y | Y | N
+List projects   | Y | Y | Y (Self)
 List user projects  | Y | Y | Y (Self)
 List users within projects  | Y | Y | N
 **Groups** |||
@@ -82,7 +82,7 @@ Update quotas   | Y | N | N
 Delete quotas   | Y | N | N
 List quotas     | Y | Y | Y
 Get network IP availability | Y | N | N
-Get hosts | N | N | N
+Get hosts | Y | N | N
 
 Volume Feature | cloud_admin | project_admin (within project) |  \_member\_
 --------------- | ----------- | ------------------------------ | -----------
@@ -144,9 +144,9 @@ Object Storage Feature | cloud_admin | project_admin (within project) |  \_membe
 Create account | Y | N | N
 Delete account | Y (enabled) | N | N
 **Containers** |||
-Create container | Y | Y | N
-Update container | Y | Y | N
-Delete container | Y | Y | N
+Create container | Y | Y | Y
+Update container | Y | Y | Y
+Delete container | Y | Y | Y
 **Objects** |||
 Create object    | Y | Y | Y
 Update object    | Y | Y | Y

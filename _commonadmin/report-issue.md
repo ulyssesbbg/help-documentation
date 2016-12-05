@@ -11,6 +11,7 @@ dateAdded: January 14th, 2016
 Your **IBM Bluemix Private Cloud Support** team is available 24 hours a day, seven days a week.  If you are experiencing an issue, please do the following things:
 
 **1. Collect all applicable information for the issue:**
+
   - Date and time the issue began
   - Frequency of the issue (intermittent or constant, at a particular time of day, etc.)
   - Steps to replicate the issue
@@ -21,7 +22,8 @@ Your **IBM Bluemix Private Cloud Support** team is available 24 hours a day, sev
   - Any additional useful information
 
 
-**2. Open a new ticket with IBM Bluemix Private Cloud Support** via one of the following methods:**
+**2. Open a new ticket with IBM Bluemix Private Cloud Support** via one of the following methods:
+
   -  email: support@bluebox.net
   -  chat: chat.bluebox.net
   -  web: support.bluebox.net

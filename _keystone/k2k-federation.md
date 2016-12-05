@@ -631,3 +631,6 @@ Here we require the user ID:
 ```
 $ openstack role add heat_stack_owner --user <federated user ID> --project <project>
 ```
+
+A known issue is that a federated user is presented with the option to change
+their password in the settings page. They will not be able to change their password.
