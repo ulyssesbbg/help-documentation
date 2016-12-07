@@ -17,19 +17,8 @@ tags: [release notes, 3.1.1]
 
 This 3.1.1 Point Release is created primarily to fix some bugs that were affecting a few of our customers. Here are the changes that may affect your customer experience:
 
-#### Changes that are updates and upgrades
-
- * Update Horizon logo and splash page to new IBM Bluemix branding
- * Urban Code Deploy[UCD] Heat plug-in currency for 3.1.1
-
-#### Bug Fixes Related to Curated Images
- 
- * CentOS 6.8 20160910 image: only 2.1G disk space is seen in VM while the flavor has 10G disk 
- * Windows images assume that hardware clock is set to local timezone instead of UTC
- 
-#### Customer-facing RBAC Documentation had been updated
-
- * [Glance_RBAC] `cloud_admin` can publicize image 
- * [bbc238_RBAC] `member` is allowed to list project
- * [Swift_RBAC] `member` could create container 
- * [Nova_RBAC] `cloud_admin` is allowed to get host
+ * Updated Horizon logo and splash page to new IBM Bluemix branding
+ * Urban Code Deploy [UCD] Heat plug-in was made current for 3.1.1
+ * Customer-facing RBAC documentation has been updated 
+ * Curated image for CentOS 6.8: only 2.1G disk space was seen in VM while the flavor had 10G disk 
+ * Windows images assumed that hardware clock was set to local timezone instead of UTC
