@@ -17,6 +17,14 @@ tags: [release notes, 3.1.1]
 
 This 3.1.1 Point Release is created primarily to fix some bugs that were affecting a few of our customers. Here are the changes that may affect your customer experience:
 
+#### Changes that are updates and upgrades
+
+
+
+  Update Horizon logo and splash page to new IBM Bluemix branding
+  Urban Code Deploy[UCD] Heat plug-in currency for 3.1.1
+
+
 #### Bug Fixes Related to Curated Images
  
  * CentOS 6.8 20160910 image: only 2.1G disk space is seen in VM while the flavor has 10G disk 
