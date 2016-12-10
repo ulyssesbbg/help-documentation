@@ -3,7 +3,7 @@ layout: page
 title: "Getting Started With Heat Templates"
 author: Sina Sadeghi
 dateAdded: September 21, 2016
-tags: [heat, orchestration, templates, best practices, multi-cloud, security groups]
+tags: [heat, orchestration, templates, best practices, multi-cloud, security groups, owner, user]
 featured: true
 weight: 3
 ---
@@ -252,3 +252,19 @@ and you can "update" existing stacks by changing the contents of the file and th
 openstack stack update -t <template file> <stack name>
 ```
 Hope that's useful info, it's definitely how I would try and solve *any* multi-cloud problem.
+
+** Heat Stack User Roles **
+
+Within OpenStack you can assign many different roles to a user. For example, the normal user may only be assigned the role called Member. An administrator may have the role called cloud_admin.
+
+The purpose of these roles is to define and restrict access to some API calls. For example, the users with the Member role assigned cannot change the password for another user, but user with the cloud_admin role assigned can do this.
+
+OpenStack Orchestration service, Heat, supports its own set of additional roles.
+
+The Heat service automatically assigns the heat_stack_user role to users that it creates during stack deployment. This role has restricted access to some API calls as users created by Heat inside a stack are only for that stack.
+
+If you wish for a user to be able to manage different stacks (for example, delete and add resources to many running stacks), then you must assign the heat_stack_owner role to this user. The heat_stack_owner role has much fewer restrictions on which API calls it can make to Heat.
+
+Unfortunately, the heat_stack_user and heat_stack_owner roles will cause conflict with each other, so if you have a user with the heat_stack_ownerrole, you must not assign the heat_stack_user role to it, to avoid this conflict.
+
+The purpose of these multiple roles is to facilitate the use of "Keystone Trusts" as a deferred authentication method. If you wish to learn more about this topic, you can read this blog post: http://hardysteven.blogspot.com/2014/04/heat-auth-model-updates-part-1-trusts.html
