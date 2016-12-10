@@ -253,7 +253,7 @@ openstack stack update -t <template file> <stack name>
 ```
 Hope that's useful info, it's definitely how I would try and solve *any* multi-cloud problem.
 
-** Heat Stack User Roles **
+**Heat Stack User Roles**
 
 Within OpenStack you can assign many different roles to a user. For example, the normal user may only be assigned the role called Member. An administrator may have the role called cloud_admin.
 
