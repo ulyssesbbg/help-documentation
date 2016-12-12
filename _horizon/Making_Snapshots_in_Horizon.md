@@ -17,6 +17,8 @@ Here’s why:
 
 **In Horizon:** When using the snapshot command via Horizon, all attached volumes are snapshotted. However, if there is not enough quota to snapshot all attached volumes, the instance snapshot fails. Horizon suppresses error messages, so the quota issue may not be visible as the root cause of the problem. 
 
+![instance_snapshot_error.png]()
+
 If you are having this trouble, you could [open a support ticket](http://ibm-blue-box-help.github.io/help-documentation/gettingstarted/commonadmin/report-issue/), and our support team could help you diagnose it by looking at logs.
 
 **In the CLI:** When using the `cinder-snapshot-create command` in the CLI, you can specify to perform the snapshot on a single volume only, for example, the the root volume. In this case, the snapshot is likely to be successful because the quota would be able to accommodate the volume capacity of a single volume.
