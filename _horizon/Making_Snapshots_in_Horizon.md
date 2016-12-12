@@ -17,7 +17,7 @@ Here’s why:
 
 **In Horizon:** When using the snapshot command via Horizon, all attached volumes are snapshotted. However, if there is not enough quota to snapshot all attached volumes, the instance snapshot fails. Horizon suppresses error messages, so the quota issue may not be visible as the root cause of the problem. 
 
-![instance_snapshot_error.png](https://github.com/IBM-Blue-Box-Help/help-documentation/blob/gh-pages/img/Instance_Snapshot_Error.png)
+![instance_snapshot_error.png]({{site.baseurl}}/img/Instance_Snapshot_Error.png)
 
 If you are having this trouble, you could [open a support ticket](http://ibm-blue-box-help.github.io/help-documentation/gettingstarted/commonadmin/report-issue/), and our support team could help you diagnose it by looking at logs.
 
