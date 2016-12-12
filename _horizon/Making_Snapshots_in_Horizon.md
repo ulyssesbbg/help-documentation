@@ -1,15 +1,14 @@
-+---
-+layout: page
-+title: Using Horizon for Snapshots
-+author: Leslie Lundquist
-+dateAdded: December 12, 2016
-+tags: [Horizon, snapshots, OpenStack, Cinder, image]
-+featured: true
-+weight: 4
-+---
+---
+layout: page
+title: Using Horizon for Snapshots
+author: Leslie Lundquist
+dateAdded: December 12, 2016
+tags: [Horizon, snapshots, OpenStack, Cinder, image]
+featured: true
+weight: 4
+---
 
-
-When running both 3.0 and 3.1 release using Horizon, snapshotting behavior can be confusing.
+When running either the 3.0 or 3.1 release using Horizon, snapshotting behavior can be confusing.
 
 Here’s why:
 
