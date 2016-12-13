@@ -8,14 +8,14 @@ featured: true
 weight: 4
 ---
 
-When running either the 3.0 or 3.1 release using Horizon, snapshotting behavior can be confusing.
+When running either the 3.0 or 3.1 release using Horizon, snapshot errors can be occur if there is not sufficient space to store volumes.  
 
 **Best Practice:**
  When using Horizon it is best to detach the data volume, perform the instance snapshot, and then reattach the data volume.
 
 Here’s why:
 
-**In Horizon:** When using the snapshot command via Horizon, all attached volumes are snapshotted. However, if there is not enough quota to snapshot all attached volumes, the instance snapshot fails. Horizon suppresses error messages, so the quota issue may not be visible as the root cause of the problem. 
+**In Horizon:** When performing an instance snapshot operation (**Instance/Create Snaphot**) using Horizon, be sure that there is enough storage capacity for all the attached volumes. If there is not enough quota available to store snapshots of all attached volumes, the instance snapshot fails. The quota issue may not be visible as the root cause of the problem. A workaround is to detach the data volume, perform the instance snapshot, and then reattach the data volume.  
 
 ![instance_snapshot_error.png]({{site.baseurl}}/img/Instance_Snapshot_Error.png)
 
