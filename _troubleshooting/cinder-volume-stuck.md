@@ -16,18 +16,17 @@ featured: true
 
 {% highlight bash %}
 cinder show [VOLUME-ID] 2>/dev/null | grep snapshot_id | awk '{print $4}'
-[SNAPSHOT-ID]
 {% endhighlight %}
 
 **Q. Why can't I attach my Cinder volume?**
 
-If you are unable to attach a Cinder volume, or if nothing happens in the Horizon dashboard when you try to do so, the `open-iscsi` service daemon may need to be restarted on your Cinder volume host.  Please [**open a support ticket**](http://ibm-blue-box-help.github.io/help-documentation/gettingstarted/commonadmin/report-issue/) to have us check whether this restart needs to be done.
+**A.** If you are unable to attach a Cinder volume, or if nothing happens in the Horizon dashboard when you try to do so, the `open-iscsi` service daemon may need to be restarted on your Cinder volume host.  Please [**open a support ticket**](http://ibm-blue-box-help.github.io/help-documentation/gettingstarted/commonadmin/report-issue/) to have us check whether this restart needs to be done.
 
 In older versions of OpenStack, there's a small chance the `cinder-volume` service may be wedged. Contact support if this is the case, and we can restart the `cinder-volume` service on the affected node. In all cases, when you contact support, please include your Cinder Request ID so we can quickly trace what happened when you tried to delete the volume.
 
 **Q. Why is my Cinder volume not responding?**
 
-Occasionally, you may run across a Cinder volume that becomes stuck.  In this example, two volumes were stuck in a "creating" state:
+**A.** Occasionally, you may run across a Cinder volume that becomes stuck.  In this example, two volumes were stuck in a "creating" state:
 
 {% highlight bash %}
 $ cinder list --all-tenants | egrep "1439ebc1|47405ffa"
