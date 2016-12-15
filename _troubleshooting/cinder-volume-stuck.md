@@ -72,17 +72,17 @@ If the volumes cannot be deleted even after resetting the state as shown above, 
 
 2: Reset the state:
 
-{% highlight bash %}
+```
 cinder reset-state --state available 033aa8e1-560d-4614-b4bc-93da9feeab32
 # cinder list --all-tenants | grep 033aa8e1-560d-4614-b4bc-93da9feeab32
 | 033aa8e1-560d-4614-b4bc-93da9feeab32 | 406add559dcc42e6ba89ea3731e267f6 | available | testbackupvols-volume_backend_node_2_0-brf6r45mkpgv | 80 | CEPH_SSD | true | 8385a0c6-c433-4e03-8c49-33444fb8e8d2,240ef26e-a807-43de-914d-a5d76a6817ff |
-{% endhighlight %}
+```
 
-3: Force an `attach_status change` in the database, to be able to delete the volume
+3: Force an `attach_status change` in the database, to be able to delete the volume:
 
-{% highlight bash %}
+```
 mysql> update volumes set attach_status='detached' where id='033aa8e1-560d-4614-b4bc-93da9feeab32';
-{% endhighlight %}
+```
 
 4: Perform the deletion:
 
