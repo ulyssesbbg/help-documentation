@@ -55,7 +55,7 @@ You can then delete the volumes:
 {% highlight bash %}
 $ cinder delete 0589360d-2d0b-49fc-9069-8f68a614fb03
 $ cinder delete 8654f34f-22a2-4f43-b8cd-002b2ff85375
-{% endhighlight %}
+{% highlight bash %}
 
 If the volumes cannot be deleted even after resetting the state as shown above, you may need one of our support technicians to investigate further. 
 
@@ -63,35 +63,39 @@ If the volumes cannot be deleted even after resetting the state as shown above, 
 
 **A.** If the methods above do not work, and you're still unable to delete the volume, you will need to contact our support team.  Our team will then perform the following from the controller node for your cluster:
 
-1: Query current state
+1: Query to determine the current state:
 
-```
+{% highlight bash %}
 # cinder list --all-tenants | grep 033aa8e1-560d-4614-b4bc-93da9feeab32
 | 033aa8e1-560d-4614-b4bc-93da9feeab32 | 406add559dcc42e6ba89ea3731e267f6 | in-use | testbackupvols-volume_backend_node_2_0-krf6r45mkpgv | 80 | CEPH_SSD | true | 8385a0c6-c433-4e03-8c49-33444fb8e8d2,240ef26e-a807-43de-914d-a5d76a6817ff |
-```
+{% highlight bash %}
 
-2: Reset the state
-```
+2: Reset the state:
+
+{% highlight bash %}
 cinder reset-state --state available 033aa8e1-560d-4614-b4bc-93da9feeab32
 
 # cinder list --all-tenants | grep 033aa8e1-560d-4614-b4bc-93da9feeab32
 | 033aa8e1-560d-4614-b4bc-93da9feeab32 | 406add559dcc42e6ba89ea3731e267f6 | available | testbackupvols-volume_backend_node_2_0-brf6r45mkpgv | 80 | CEPH_SSD | true | 8385a0c6-c433-4e03-8c49-33444fb8e8d2,240ef26e-a807-43de-914d-a5d76a6817ff |
-```
+{% highlight bash %}
 
 3: Force an `attach_status change` in the database, to be able to delete the volume
-```
-mysql> update volumes set attach_status='detached' where id='033aa8e1-560d-4614-b4bc-93da9feeab32';
-```
 
-4: Perform deletion:
-```
+{% highlight bash %}
+mysql> update volumes set attach_status='detached' where id='033aa8e1-560d-4614-b4bc-93da9feeab32';
+{% highlight bash %}
+
+4: Perform the deletion:
+
+{% highlight bash %}
 cinder delete 033aa8e1-560d-4614-b4bc-93da9feeab32
-```
+{% highlight bash %}
 
 5: Confirm that the requested volume does not exist
-```
+
+{% highlight bash %}
 cinder list --all-tenants | grep 033aa8e1-560d-4614-b4bc-93da9feeab32
-```
+{% highlight bash %}
 
 **Q. What other types of problems could be making my Cinder volume unresponsive?**
 
