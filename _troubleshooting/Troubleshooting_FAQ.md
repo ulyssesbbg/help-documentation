@@ -37,6 +37,8 @@ It’s possible that the instance was actually created at a time when the `m1.ti
 
 You might need to [open a support ticket](https://github.com/IBM-Blue-Box-Help/help-documentation/blob/gh-pages/_commonadmin/report-issue.md) to get help in verifying that this is the cause of your failure. The support team would see an error in the logs, something like this:
 
+```
 Exception during message handling: Resize error: Unable to resize disk down.
+```
 
-Alternatively, some good options for moving forward without opening a ticket would be to set the `m1.medium` flavor to the same larger Ephemeral disk size it was before, or follow the troubleshooting workaround here for creating a new instance from snapshot: http://ibm-blue-box-help.github.io/help-documentation/gettingstarted/commontech/Instance_Resize/
+Alternatively, some good options for moving forward without opening a ticket would be to set the `m1.medium` flavor to the same larger Ephemeral disk size it was before, or to follow the troubleshooting workaround here for creating a new instance from snapshot: http://ibm-blue-box-help.github.io/help-documentation/gettingstarted/commontech/Instance_Resize/
