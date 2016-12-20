@@ -30,3 +30,13 @@ Note the time on the console, if any.
 Capture a screenshot of the console if it's frozen and contains useful information. After you reboot, if you've enabled crash dumps on the virtual machine, you can check `/var/crash` for `vmcore` (on RedHat) or `.crash` (on Ubuntu) files and analyze the dump from there. Also check system activity (sar) stats around the time of the freeze.
 
 Reboot the machine if you need it back up ASAP, or better yet, spin up a new one based on the same image. If you need further investigation done on the infrastructure, try to let us know the time of the freeze in UTC prior to rebooting it, and the UUID of the instance, and we'll see if there is anything to be found in the logs.
+
+**Q. Why can’t I resize my instance from `m1.tiny` to `m1.medium`?**
+
+It’s possible that the instance was actually created at a time when the `m1.tiny` flavor still had a 300GB Ephemeral disk. The resize process is checking for that, and it will fail to resize if that value is not found.
+
+You might need to [open a support ticket](https://github.com/IBM-Blue-Box-Help/help-documentation/blob/gh-pages/_commonadmin/report-issue.md) to get help in verifying that this is the cause of your failure. The support team would see an error in the logs, something like this:
+
+Exception during message handling: Resize error: Unable to resize disk down.
+
+Alternatively, some good options for moving forward without opening a ticket would be to set the `m1.medium` flavor to 300GB Ephemeral disk, or follow the troubleshooting workaround here for creating a new instance from snapshot: http://ibm-blue-box-help.github.io/help-documentation/gettingstarted/commontech/Instance_Resize/
