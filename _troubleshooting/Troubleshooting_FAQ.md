@@ -49,15 +49,15 @@ Stuck ports can occur in Neutron when instantiating VMs using Heat. This issue i
 
 Several workarounds exist:
 
-Workaround #1. If possible, instances can be deployed without using Heat. Manual deployment seems to circumvent this condition.
+**Workaround #1.** If possible, instances can be deployed without using Heat. Manual deployment seems to circumvent this condition.
 
-Workaround #2. Another workaround is to introduce a delay in Heat, using `WaitCondition` from the API.  However, `WaitCondition` may not be ideal in this scenario.
+**Workaround #2.** Another workaround is to introduce a delay in Heat, using `WaitCondition` from the API.  However, `WaitCondition` may not be ideal in this scenario.
 
  * `WaitCondition` works in conjunction with `WaitConditionHandler`.This handler creates a URL/URI that is monitored for a string of text. The presence of this string denotes success of a deployed VM, and the absence of that string denotes failure. Once a VM is instantiated it can be instructed to populate the URL/URI with the appropriate string of text via a `PUT` API call.
 
  * Currently, no mechanism exists in our OpenStack deployment for an L3 router to make that API call. Our engineering team suggests using 'depends_on'. (See option 3, which follows).
 
-Workaround #3. The best workaround is to use `depends_on`. It creates a scenario in orchestration so that the deployment of a VM "depends on" the existence of other, definable, resources: for example an L3 Router and Network. 
+**Workaround #3.** The best workaround is to use `depends_on`. It creates a scenario in orchestration so that the deployment of a VM "depends on" the existence of other, definable, resources: for example an L3 Router and Network. 
 
 A brief `depends_on` example:
 
