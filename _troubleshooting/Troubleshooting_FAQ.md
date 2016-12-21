@@ -84,6 +84,6 @@ More details on Explicit Dependencies are available at the following link:
 
 You will need to open at least ports 67/68 for DHCP and port 80 for metadata. Additionally, if you want VMs to be able to access OpenStack API services, include the ports documented here...
 
-http://ibm-blue-box-help.github.io/help-documentation/gettingstarted/commontech/FAQ/#which-portsurls-etc-are-publicly-accessible-on-my-bluemix-private-cloud-and-for-what-purpose
+[http://ibm-blue-box-help.github.io/help-documentation/gettingstarted/commontech/FAQ/#which-portsurls-etc-are-publicly-accessible-on-my-bluemix-private-cloud-and-for-what-purpose](http://ibm-blue-box-help.github.io/help-documentation/gettingstarted/commontech/FAQ/#which-portsurls-etc-are-publicly-accessible-on-my-bluemix-private-cloud-and-for-what-purpose)
 
 If the minimum required set of ports is not open, you may encounter trouble with `cloud_init`so that your instances may not be able to start successfully.
