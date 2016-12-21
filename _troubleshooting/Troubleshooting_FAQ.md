@@ -3,7 +3,7 @@ layout: page
 title:  "Troubleshooting FAQ"
 featured: true
 weight: 8
-tags: [troubleshooting, faq, reboot, instance, timestamp, console, logs]
+tags: [troubleshooting, faq, reboot, instance, timestamp, console, logs, stuck port, ports, depends_on]
 author: Leslie Lundquist, Ulysses Kanigel
 dateAdded: August 19, 2016
 
@@ -75,6 +75,7 @@ server1:
     properties:
       image: { get_param: image }
 ```
+
 More details on Explicit Dependencies are available at the following link:
 
  * https://wiki.openstack.org/wiki/Heat/Blueprints/hot-software-config-spec
@@ -82,7 +83,7 @@ More details on Explicit Dependencies are available at the following link:
 
 **Q. What ports need to be open for OpenStack?**
 
-You will need to open at least ports 67/68 for DHCP and port 80 for metadata. Additionally, if you want VMs to be able to access OpenStack API services, include the ports documented here...
+You will need to open at least ports 67/68 for DHCP and port 80 for metadata. Additionally, if you want VMs to be able to access OpenStack API services, include the ports documented here:
 
 [http://ibm-blue-box-help.github.io/help-documentation/gettingstarted/commontech/FAQ/#which-portsurls-etc-are-publicly-accessible-on-my-bluemix-private-cloud-and-for-what-purpose](http://ibm-blue-box-help.github.io/help-documentation/gettingstarted/commontech/FAQ/#which-portsurls-etc-are-publicly-accessible-on-my-bluemix-private-cloud-and-for-what-purpose)
 
