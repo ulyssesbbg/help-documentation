@@ -42,3 +42,47 @@ Exception during message handling: Resize error: Unable to resize disk down.
 ```
 
 Alternatively, some good options for moving forward without opening a ticket would be to set the `m1.medium` flavor to the same larger Ephemeral disk size it was before, or to follow the troubleshooting workaround here for creating a new instance from snapshot: http://ibm-blue-box-help.github.io/help-documentation/gettingstarted/commontech/Instance_Resize/
+
+**Q. What causes stuck ports in Neutron?**
+
+Stuck ports can occur in Neutron when instantiating VMs using Heat. This issue is believed to be related to a defect in OpenStack Neutron (Mitaka release) due to a race condition in Neutron. Therefore, we are treating it as a known limitation. This condition may also cause metadata failure along with stuck ports.
+
+Several workarounds exist:
+
+1. If possible, instances can be deployed without using Heat. Manual deployment seems to circumvent this condition.
+
+2. Another workaround is to introduce a delay in Heat, using `WaitCondition` from the API.  However, `WaitCondition` may not be ideal in this scenario.
+
+`WaitCondition` works in conjunction with `WaitConditionHandler`.This handler creates a URL/URI that is monitored for a string of text. The presence of this string denotes success of a deployed VM, and the absence of that string denotes failure. Once a VM is instantiated it can be instructed to populate the URL/URI with the appropriate string of text via a `PUT` API call.
+
+Currently, no mechanism exists in our OpenStack deployment for an L3 router to make that API call. Our engineering team suggests using 'depends_on'. (See option 3, which follows).
+
+3. The best workaround is to use `depends_on`. It creates a scenario in orchestration so that the deployment of a VM "depends on" the existence of other, definable, resources: for example an L3 Router and Network. 
+
+A brief `depends_on` example:
+```
+add_router_interface:
+   type: OS::Neutron::RouterInterface
+   properties:
+     router: { get_resource: router}
+     subnet: { get_resource: subnet}
+
+
+server1:
+    type: OS::Nova::Server
+    depends on: add_router_interface
+    properties:
+      image: { get_param: image }
+```
+More details on Explicit Dependencies are available at the following link:
+
+ * https://wiki.openstack.org/wiki/Heat/Blueprints/hot-software-config-spec
+
+
+**Q. What ports need to be open for OpenStack?**
+
+You will need to open at least ports 67/68 for DHCP and port 80 for metadata. Additionally, if you want VMs to be able to access OpenStack API services, include the ports documented here...
+
+http://ibm-blue-box-help.github.io/help-documentation/gettingstarted/commontech/FAQ/#which-portsurls-etc-are-publicly-accessible-on-my-bluemix-private-cloud-and-for-what-purpose
+
+If the minimum required set of ports is not open, you may encounter trouble with `cloud_init`so that your instances may not be able to start successfully.
