@@ -60,8 +60,8 @@ Workaround #2. Another workaround is to introduce a delay in Heat, using `WaitCo
 Workaround #3. The best workaround is to use `depends_on`. It creates a scenario in orchestration so that the deployment of a VM "depends on" the existence of other, definable, resources: for example an L3 Router and Network. 
 
 A brief `depends_on` example:
- 
-  ```
+
+```
 add_router_interface:
    type: OS::Neutron::RouterInterface
    properties:
