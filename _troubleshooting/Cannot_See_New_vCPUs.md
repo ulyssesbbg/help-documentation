@@ -27,6 +27,20 @@ tags: [troubleshooting, horizon, nova, overcommit, hypervisor, vcpu]
 
 You can update quotas using the command line by following the examples at http://ibm-blue-box-help.github.io/help-documentation/openstack/userdocs/quotas/#compute-quotas
 
+**Q.** How does overcommitting CPU work?
+
+**A.** Turning on overcommitment of CPU affects how the nova scheduler places new instances across your hypervisors. It limits on which compute node you can place new instances. If you were trying to place a new VM on your cluster before and didn't have enough CPU resources to do so, overcommit gives you that room. Existing VMs will use the resources they were assigned with. For example, a VM with 16 vCPUs will continue to use 16 vCPUs.
+
+The performance of existing VMs doesn't suddenly decrease when you turn on overcommit. Overcommit affects the number of vCPUs that are presented to nova scheduler internally when scheduling new instances to be placed on hypervisors. Also, an instance will never overcommit against itself, only against other instances. As long as you are not running every single instance on one compute node at 100% at the same time, performance will not be significantly degraded and the linux scheduler will efficiently balance the load between VMs.
+
+To maximize performance, allocate the minimum amount of virtual processors necessary for each guest operating system to successfully operate. Do not allocate virtual processors to guest operating systems that the guest operating systems do not need.
+
+**Q.** What's the difference between leaving overcommitment of CPU off and leaving it on?
+
+**A.** Without overcommit, each VM gets its own cores, and nova won't place them on top of each other. So one spiky VM won't necessarily impact another VM on the same hypervisor, barring whatever base operating system processes get slowed down by one or more cores being spiked.
+
+With overcommit, VMs on the same hypervisor share cores when spikes happen, so you may want to avoid placing multiple known spiky VMs on the same compute node. You wouldn't want, for example, two DB servers in a master-master configuration on the same node. You can place them on separate nodes via anti-affinity groups, as described at https://raymii.org/s/articles/Openstack_Affinity_Groups-make-sure-instances-are-on-the-same-or-a-different-hypervisor-host.html Note that you can only do this with new VMs. Existing VMs that you want on different compute nodes would have to be re-deployed to take advantage of anti-affinity placement.
+
 For more information, see:
 
 * https://bugs.launchpad.net/horizon/+bug/1202965
