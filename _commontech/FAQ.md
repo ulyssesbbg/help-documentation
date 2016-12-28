@@ -57,6 +57,8 @@ Three additional ports are enabled if you've requested Swift (OpenStack Object S
 
 All of these ports are available via your custom Horizon URL.
 
+If you also need to restrict egress ports to the bare minimum, you will need to open at least ports 67/68 for DHCP and port 80 for metadata.
+
 ### How can I measure IO Operations Per Second on an instance's or a volume's drive?
 
 
