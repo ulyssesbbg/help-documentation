@@ -104,3 +104,18 @@ If you are `cloud_admin`, there’s a one-liner for that!
 nova list --all-tenants --fields name,OS-EXT-SRV-ATTR:host
 
 ```
+### Does the command `openstack host show disk name` show the actual hard disk usage of the physical host?
+
+No. It shows info about the flavors of the instances that run on hosts. At this time, swap usage information is not included. The section that follows shows what is included as of the Mitaka release.
+
+Also see https://derpops.bike/2016/10/07/openstack-nova-and-hypervisor-disk-consumption/
+
+To help answer this question, we need to turn to the OpenStack documentation: http://docs.openstack.org/admin-guide/common/nova-show-usage-statistics-for-hosts-instances.html
+
+ * The `disk_gb` column [in the `openstack host show` output] shows the sum of the root and ephemeral disk sizes (in GB) of the instances that run on the host. [This value is] computed by using information about the flavors of the instances that run on the hosts. This command does not query the ... hard disk usage of the physical host.
+ * You can see the actual flavor calculation in https://github.com/openstack/nova/blob/c521ba7fa679b6e9c790d84ea22f04fb999987db/nova/notifications/base.py#L448-L454 `disk_gb = root_gb + ephemeral_gb`
+ * ephemeral_gb = Specifies the size of a secondary ephemeral data disk. This is an empty, unformatted disk that exists only for the life of the instance. The default value is 0. 
+ * root_gb = Amount of disk space (in gigabytes) to use for the root (/) partition.
+ * Nova's `disk_gb` does NOT currently include swap information. (That is, optional swap space allocation for the instance. The default value is 0.)
+
+Work is proposed for the OpenStack Newton release that would start including this optional swap space, as per https://specs.openstack.org/openstack/nova-specs/specs/newton/implemented/resource-providers-allocations.html : "When the compute node utilizes local storage for instance disks OR was booted from volume, the value used should be the sum of the root_gb, ephemeral_gb, and swap field values of the flavor. The resource_provider_uuid should be the compute node’s UUID. Note that for instances that were booted from volume, the root_gb value will be 0." 
