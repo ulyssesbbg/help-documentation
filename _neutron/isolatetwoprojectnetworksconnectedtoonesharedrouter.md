@@ -16,8 +16,9 @@ One of our clients asked how he could isolate project networks connected to a sh
 
 ![graphic here]({{site.baseurl}}/img/isolatetenantnetworks2.png)
 
-Steps to configure this:
-```
+Steps to configure this setup:
+
+{% highlight bash %} 
 openstack project create --description Admin_Project_CUSTOMER CUSTOMER-admin
 openstack role add --project CUSTOMER-admin --group cloud_admin cloud_admin
 openstack quota set --routers 2 --rbac-policies 100 --networks 100 --subnets 100 --subnetpools 2 CUSTOMER-admin
@@ -27,12 +28,13 @@ OS_PROJECT_NAME=CUSTOMER-admin
 openstack subnet pool create --default-prefix-length 24 --pool-prefix X.Y.0.0/16 CUSTOMER-subnetpool
 openstack router create CUSTOMER-router
 neutron router-gateway-set CUSTOMER-router external
-neutron router-gateway-set --disable_snat CUSTOMER-router external => must be done by IBM Staff
-plus: add routing for the subnet pool X.Y.0.0/16 on external firewalls => must be done by IBM Staff
-```
+neutron router-gateway-set --disable_snat CUSTOMER-router external => *must be done by IBM Staff*
+plus: add routing for the subnet pool X.Y.0.0/16 on external firewalls => *must be done by IBM Staff*
+{% endhighlight %}
 
-After you've done this, new projects can be created in the customer-admin project:
-```
+After you've done these steps, new projects can be created in the **customer-admin** project:
+
+{% highlight bash %} 
 openstack project create --description New_Project_${PROJECT} ${PROJECT}
 openstack user create --project ${PROJECT} --password ${PROJECT_USER_PASSWD} --description Default_Admin_User_for_${PROJECT} ${PROJECT_USER}
 openstack role add --project ${PROJECT} --user ${PROJECT_USER} project_admin
@@ -48,7 +50,7 @@ GWIP=`openstack subnet show -c gateway_ip ${PROJECT}-subnet | grep gateway_ip | 
 openstack port create --disable --fixed-ip subnet=${PROJECT}-subnet,ip-address=${GWIP} --network ${PROJECT}-net ${DEFAULTROUTER}-port-${PROJECT}
 openstack port set --enable ${DEFAULTROUTER}-port-${PROJECT}
 neutron router-interface-add ${DEFAULTROUTER} port=${DEFAULTROUTER}-port-${PROJECT}
-```
+{% endhighlight %}
 
 Also see:
 
