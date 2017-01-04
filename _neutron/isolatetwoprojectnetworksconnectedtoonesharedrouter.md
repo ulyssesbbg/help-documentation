@@ -10,9 +10,9 @@ tags: [neutron, projects, shared router, isolation, isolate]
 
 One of our clients asked how he could isolate project networks connected to a shared router for his own customers.  Here is the solution the client came up with:
 
-* Create one "CUSTOMER-admin" project for each customer
-* Create one router for each of these new customer admin projects
-* Create one network/subnet for each (sub)project, connected to the "admin" router
+* Create one "CUSTOMER-admin" project for each customer.
+* Create one router for each of these new customer admin projects.
+* Create one network/subnet for each (sub)project, connected to the "admin" router.
 
 ![graphic here](https://github.com/IBM-Blue-Box-Help/help-documentation/blob/gh-pages/img/isolateneutronnetworks2.png)
 
