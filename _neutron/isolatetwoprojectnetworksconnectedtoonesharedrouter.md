@@ -14,7 +14,7 @@ One of our clients asked how he could isolate project networks connected to a sh
 * Create one router for each of these new customer admin projects
 * Create one network/subnet for each (sub)project, connected to the "admin" router
 
-![graphic here]({{site.baseurl}}/img/isolatetenantnetworks2.png)
+![graphic here](https://github.com/IBM-Blue-Box-Help/help-documentation/blob/gh-pages/img/isolateneutronnetworks2.png)
 
 Steps to configure this setup:
 
@@ -32,7 +32,7 @@ neutron router-gateway-set --disable_snat CUSTOMER-router external => *must be d
 plus: add routing for the subnet pool X.Y.0.0/16 on external firewalls => *must be done by IBM Staff*
 {% endhighlight %}
 
-After you've done these steps, new projects can be created in the **customer-admin** project:
+After you've done these steps, new projects can be created in the **customer-admin** project, as follows:
 
 {% highlight bash %} 
 openstack project create --description New_Project_${PROJECT} ${PROJECT}
@@ -52,7 +52,8 @@ openstack port set --enable ${DEFAULTROUTER}-port-${PROJECT}
 neutron router-interface-add ${DEFAULTROUTER} port=${DEFAULTROUTER}-port-${PROJECT}
 {% endhighlight %}
 
-Also see:
+Also see these articles:
 
 https://ask.openstack.org/en/question/69528/two-tenants-two-networks-one-router/
+
 https://ask.openstack.org/en/question/60769/how-to-isolate-tenant-networks-connected-to-a-shared-router/
