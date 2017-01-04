@@ -14,7 +14,7 @@ One of our clients asked how he could isolate project networks connected to a sh
 * Create one router for each of these new customer admin projects
 * Create one network/subnet for each (sub)project, connected to the "admin" router
 
-![graphic here](../img/isolatetenantnetworks2.png)
+![graphic here]({{site.baseurl}}/img/isolatetenantnetworks2.png)
 
 Steps to configure this:
 ```
