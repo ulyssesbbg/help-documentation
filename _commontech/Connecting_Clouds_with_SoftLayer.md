@@ -41,9 +41,28 @@ When you request an IBM Cloud Data Center private network, an internal OpenStack
 * When a virtual machine is deployed to the `sl-private-network`, a 10.x.x.x IP address is assigned. This IP address is routable between your IBM Cloud data centers. 
 * Each IBM Bluemix Private Cloud will have a unique 10.x.x.x subnet, and the IBM Cloud Data Center will route traffic between them over its private network.
 
-On each instance you want to be able to communicate with, create two NICs:
-* Create the first one with a regular 10.x.x.x network (but **not** on the `sl-private-network` subnet) and assign your floating IP address to that.
-* Then create a second NIC with an `sl-private-network` 10.x.x.x address assigned.
-* Finally, add a 10.x.x.x net route out on that second NIC.
+On each instance you want to be able to communicate with:
+
+Step 1. Create a virtual machine as usual.  Locate the pulldown menu on the right where you do things like attaching a floating IP.  On the same pulldown menu, select `Attach Interface` and then select `sl-private-network-01`.
+
+Step 2. Login to the virtual machine you just created.  Configure the IP manually on the eth1 interface, for example: 
+```
+vi /etc/network/interfaces
+
+# Configure Loopback
+auto lo
+iface lo inet loopback
+
+auto eth0
+iface eth0 inet dhcp
+
+auto eth1
+iface eth1 inet static
+address 10.168.6.87
+netmask 255.255.255.192
+gateway 10.168.6.65
+```
+
+Step 3. Add static route for the 10 net, for example, `ip route add 10.0.0.0/8 via 10.168.6.65` and remember to `ifdown eth1 && ifup eth1`
 
 If you haven't done these 3 steps on each of your instances, you won't get connectivity to your other locations.  Neutron will automatically change the IP address to the floating IP when assigned on a NIC card.
