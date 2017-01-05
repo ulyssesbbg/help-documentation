@@ -20,6 +20,7 @@ editor: Leslie Lundquist
  * [When using security groups, how can I log refused TCP connections to forbidden ports?](#when-using-security-groups-how-can-i-log-refused-tcp-connections-to-forbidden-ports)
  * [What is the maximum number of virtual devices (for example, ports) that can be attached to a virtual machine?](#what-is-the-maximum-number-of-virtual-devices-for-example-ports-that-can-be-attached-to-a-virtual-machine)
  * [How can I get a list of all my VMs and their host names?](#how-can-i-get-a-list-of-all-my-vms-and-their-host-names)
+ * [Does the command `openstack host show disk name` show the actual hard disk usage of the physical host?](#does-the-command-openstack-host-show-disk-name-show-the-actual-hard-disk-usage-of-the-physical-host)
  
 ### How can I resize an existing instance?
 
@@ -118,4 +119,6 @@ To help answer this question, we need to turn to the OpenStack documentation: ht
  * root_gb = Amount of disk space (in gigabytes) to use for the root (/) partition.
  * Nova's `disk_gb` does NOT currently include swap information. (That is, optional swap space allocation for the instance. The default value is 0.)
 
-Work is proposed for the OpenStack Newton release that would start including this optional swap space, as per https://specs.openstack.org/openstack/nova-specs/specs/newton/implemented/resource-providers-allocations.html : "When the compute node utilizes local storage for instance disks OR was booted from volume, the value used should be the sum of the root_gb, ephemeral_gb, and swap field values of the flavor. The resource_provider_uuid should be the compute node’s UUID. Note that for instances that were booted from volume, the root_gb value will be 0." 
+Work is proposed for the OpenStack Newton release that would start including this optional swap space, as per this spec  https://specs.openstack.org/openstack/nova-specs/specs/newton/implemented/resource-providers-allocations.html: 
+
+"When the compute node utilizes local storage for instance disks OR was booted from volume, the value used should be the sum of the `root_gb`, `ephemeral_gb`, and `swap` field values of the flavor. The `resource_provider_uuid` should be the compute node’s UUID. Note that for instances that were booted from volume, the `root_gb` value will be 0." 
