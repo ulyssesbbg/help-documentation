@@ -64,6 +64,6 @@ netmask 255.255.255.192
 gateway 10.168.6.65
 ```
 
-Step 3. Add static route for the 10 net, for example, `ip route add 10.0.0.0/8 via 10.168.6.65` and remember to `ifdown eth1 && ifup eth1`
+**Step 3.** Add static route for the 10 net, for example, `ip route add 10.0.0.0/8 via 10.168.6.65` and remember to `ifdown eth1 && ifup eth1`
 
 If you haven't done these 3 steps on each of your instances, you won't get connectivity to your other locations.  Neutron will automatically change the IP address to the floating IP when assigned on a NIC card.
