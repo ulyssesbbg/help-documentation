@@ -11,11 +11,11 @@ author: Leslie Lundquist, Ulysses Kanigel
 
 ## How Can I Check My Network IP Availability?
 
-In OpenStack Mitaka and above, availability commands let you check the availability of IPs more easily.
+In OpenStack Mitaka and newer, availability commands let you check the availability of IPs more easily.
 
 ### Floating IP Pool Availability
 
-**Q.** How can I check to see how many Floating IPs are left in my availability pool? 
+**Q.** How can I check to see how many floating IPs are left in my availability pool? 
 
 **A.** There’s an API call and a client call for resource allocation reporting:
 
@@ -37,22 +37,21 @@ This command gives information about how many floating IPs are used, and how man
 
 Aside: Why are networks and subnets called "**HA network tenant xyz**" created?
 
-The networks with names of "HA network" host the High Availability network for a project.  One HA network is used per project, and all HA router ports are created on this network.  This allows failover to work if one of your network nodes goes down.  You can read more about this at:
+The networks with names that include the phrase "HA network" host the High Availability network for a project.  One HA network is used per project, and all HA router ports are created on this network.  This arrangement allows failover to work if one of your network nodes goes down.  You can read more about this topic at:
 
 http://docs.openstack.org/mitaka/networking-guide/scenario-l3ha-lb.html 
 
 https://review.openstack.org/gitweb?p=openstack/neutron.git;a=blob;f=neutron/db/l3_hamode_db.py
 
-You'll note HA networks and subnets have a project associated, but it's done in kind of a weird way: The project_id is put to the right of word "tenant" in the network_name. But the project_id associated with the network itself is left blank.
+You'll note that HA networks and subnets have an associated project, but the association is done in a non-obvious way: The `project_id` is shown to the right of word "tenant" in the `network_name`. But the `project_id` associated with the network itself is left blank.
 
-
-Back to **floating IPs**: To get even more information about floating IPs, you can use another command, which provides the CIDR and more details on used IPs:
+Back to **floating IPs**: To get even more information about floating IPs, you can use another command, shown below, which provides the CIDR and more details about IPs that are in use:
 
 ```
 > neutron net-ip-availability-show internal
 ```
 
-This returns something like this:
+This command returns output something like this example:
 
 ```
 +------------------------+-------------------------------------------------------------------------------------------------+
@@ -92,7 +91,7 @@ Next, enter the `network_id` of the external network to find available IPs there
 ```
 > neutron net-ip-availability-show 0d13276b-c364-443a-9217-4af45e9e38f1
 ```
-You will get back something like this:
+You will get back output something like this one:
 
 ```
 +——————————---—---------—+————————————————————————————————————————————————————----—————+
@@ -113,7 +112,7 @@ Next, enter the `network_id` of the internal network to find availability there:
 > neutron net-ip-availability-show ef5fb554-5e9b-4ab6-9fb4-0711c3c91e39
 ```
 
-You will get back something like this:
+You will get back a response similar to this one:
 
 ```
 +------------------------+-------------------------------------------------------------------------------------------------+
