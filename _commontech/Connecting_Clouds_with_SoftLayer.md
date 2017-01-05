@@ -41,11 +41,12 @@ When you request an IBM Cloud Data Center private network, an internal OpenStack
 * When a virtual machine is deployed to the `sl-private-network`, a 10.x.x.x IP address is assigned. This IP address is routable between your IBM Cloud data centers. 
 * Each IBM Bluemix Private Cloud will have a unique 10.x.x.x subnet, and the IBM Cloud Data Center will route traffic between them over its private network.
 
-On each instance you want to be able to communicate with:
+On each instance you want to be able to communicate with, perform these steps:
 
-Step 1. Create a virtual machine as usual.  Locate the pulldown menu on the right where you do things like attaching a floating IP.  On the same pulldown menu, select `Attach Interface` and then select `sl-private-network-01`.
+**Step 1.** Create a virtual machine as usual.  Locate the pulldown menu on the right, where you would normally attach a floating IP address to your VM.  On the same pulldown menu, select `Attach Interface` and then select `sl-private-network-01`.
 
-Step 2. Login to the virtual machine you just created.  Configure the IP manually on the eth1 interface, for example: 
+**Step 2.** Log in to the virtual machine you just created.  Configure the IP manually on the `eth1` interface, for example:
+
 ```
 vi /etc/network/interfaces
 
