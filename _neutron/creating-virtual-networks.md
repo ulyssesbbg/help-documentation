@@ -1,6 +1,6 @@
 ---
 layout: page
-title:  "Creating virtual networks on Blue Box Cloud"
+title:  "Creating virtual networks on IBM Bluemix Private Cloud"
 tags: [neutron, creating virtual networks]
 dateAdded: September 16th, 2015
 author: Jason Kennedy
