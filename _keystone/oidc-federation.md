@@ -1,6 +1,6 @@
 ---
 layout: page
-title: OpendID Connect Federation on IBM Bluemix Private Cloud
+title: OpenID Connect Federation on IBM Bluemix Private Cloud
 featured: false
 tags: [federation, keystone, oidc]
 dateAdded: September 22nd, 2016
