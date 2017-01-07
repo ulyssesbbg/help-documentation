@@ -8,7 +8,7 @@ author: Leslie Lundquist, Ulysses Kanigel
 dateAdded: August 19, 2016
 
 ---
-Table of Contents
+#### Table of Contents
 
  * [How Can I Tell When My Virtual Machine Last Rebooted?](#)
  * [What should I do if my instance froze and stopped responding?](#what-should-i-do-if-my-instance-froze-and-stopped-responding)
