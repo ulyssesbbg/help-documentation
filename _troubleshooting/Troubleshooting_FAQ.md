@@ -10,14 +10,14 @@ dateAdded: August 19, 2016
 ---
 Table of Contents
 
- * How Can I Tell When My Virtual Machine Last Rebooted?
- * What should I do if my instance froze and stopped responding?
- * Why can’t I resize my instance from `m1.tiny` to `m1.medium`?
- * What causes stuck ports in Neutron?
- * What ports need to be open for OpenStack?
- * What does this error mean? "Error: Unable to retrieve volume limit information." 
+ * [How Can I Tell When My Virtual Machine Last Rebooted?](#)
+ * [What should I do if my instance froze and stopped responding?](#what-should-i-do-if-my-instance-froze-and-stopped-responding)
+ * [Why can’t I resize my instance from `m1.tiny` to `m1.medium`?](#why-cant-i-resize-my-instance-from-m1tiny-to-m1medium)
+ * [What causes stuck ports in Neutron?](#what-causes-stuck-ports-in-neutron)
+ * [What ports need to be open for OpenStack?](#what-ports-need-to-be-open-for-openstack)
+ * [What does this error mean? "Error: Unable to retrieve volume limit information."](#what-does-this-error-mean-error-unable-to-retrieve-volume-limit-information)
  
-**Q. How Can I Tell When My Virtual Machine Last Rebooted?**
+#### Q. How Can I Tell When My Virtual Machine Last Rebooted?
 
 **A.** You can use this command 
 ```
@@ -27,7 +27,7 @@ to see when the host (VM) last booted, and then use that timestamp to look throu
 
 
 
-**Q. What should I do if my instance froze and stopped responding?**
+#### Q. What should I do if my instance froze and stopped responding?
 
 **A.** We recommend that you check the console of the virtual machine and see if it's completely frozen, or if there's evidence of a kernel panic or another error. If you aren't doing so already, you can get the URL of the console via 
 ```
@@ -39,7 +39,7 @@ Capture a screenshot of the console if it's frozen and contains useful informati
 
 Reboot the machine if you need it back up ASAP, or better yet, spin up a new one based on the same image. If you need further investigation done on the infrastructure, try to let us know the time of the freeze in UTC prior to rebooting it, and the UUID of the instance, and we'll see if there is anything to be found in the logs.
 
-**Q. Why can’t I resize my instance from `m1.tiny` to `m1.medium`?**
+#### Q. Why can’t I resize my instance from `m1.tiny` to `m1.medium`?
 
 It’s possible that the instance was actually created at a time when the `m1.tiny` flavor had a larger Ephemeral disk. The resize process is checking for that, and it will fail to resize if that value is not found.
 
@@ -51,7 +51,7 @@ Exception during message handling: Resize error: Unable to resize disk down.
 
 Alternatively, some good options for moving forward without opening a ticket would be to set the `m1.medium` flavor to the same larger Ephemeral disk size it was before, or to follow the troubleshooting workaround here for creating a new instance from snapshot: http://ibm-blue-box-help.github.io/help-documentation/gettingstarted/commontech/Instance_Resize/
 
-**Q. What causes stuck ports in Neutron?**
+#### Q. What causes stuck ports in Neutron?
 
 Stuck ports can occur in Neutron when instantiating VMs using Heat. This issue is believed to be related to a defect in OpenStack Neutron (Mitaka release) due to a race condition in Neutron. Therefore, we are treating it as a known limitation. This condition may also cause metadata failure along with stuck ports.
 
@@ -89,7 +89,7 @@ More details on Explicit Dependencies are available at the following link:
  * https://wiki.openstack.org/wiki/Heat/Blueprints/hot-software-config-spec
 
 
-**Q. What ports need to be open for OpenStack?**
+#### Q. What ports need to be open for OpenStack?
 
 You will need to open at least ports 67/68 for DHCP and port 80 for metadata. Additionally, if you want VMs to be able to access OpenStack API services, include the ports documented here:
 
@@ -97,7 +97,7 @@ You will need to open at least ports 67/68 for DHCP and port 80 for metadata. Ad
 
 If the minimum required set of ports is not open, you may encounter trouble with `cloud_init`so that your instances may not be able to start successfully.
 
-**Q. What does this error mean? "Error: Unable to retrieve volume limit information."**
+#### Q. What does this error mean? "Error: Unable to retrieve volume limit information."
 
 Often when I load a page in the DC Horizon dashboard - I see a little red pop-up that says, "Error: Unable to retrieve volume limit information." What is this error?
 
