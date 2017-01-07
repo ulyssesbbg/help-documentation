@@ -8,7 +8,15 @@ author: Leslie Lundquist, Ulysses Kanigel
 dateAdded: August 19, 2016
 
 ---
+Table of Contents
 
+ * How Can I Tell When My Virtual Machine Last Rebooted?
+ * What should I do if my instance froze and stopped responding?
+ * Why can’t I resize my instance from `m1.tiny` to `m1.medium`?
+ * What causes stuck ports in Neutron?
+ * What ports need to be open for OpenStack?
+ * What does this error mean? "Error: Unable to retrieve volume limit information." 
+ 
 **Q. How Can I Tell When My Virtual Machine Last Rebooted?**
 
 **A.** You can use this command 
@@ -88,3 +96,11 @@ You will need to open at least ports 67/68 for DHCP and port 80 for metadata. Ad
 [http://ibm-blue-box-help.github.io/help-documentation/gettingstarted/commontech/FAQ/#which-portsurls-etc-are-publicly-accessible-on-my-bluemix-private-cloud-and-for-what-purpose](http://ibm-blue-box-help.github.io/help-documentation/gettingstarted/commontech/FAQ/#which-portsurls-etc-are-publicly-accessible-on-my-bluemix-private-cloud-and-for-what-purpose)
 
 If the minimum required set of ports is not open, you may encounter trouble with `cloud_init`so that your instances may not be able to start successfully.
+
+**Q. What does this error mean? "Error: Unable to retrieve volume limit information."**
+
+Often when I load a page in the DC Horizon dashboard - I see a little red pop-up that says, "Error: Unable to retrieve volume limit information." What is this error?
+
+This error is harmless, but it happens because you do not have any Cinder block storage in your deployment, as Cinder is intentionally not being deployed.
+
+The error can be resolved by removing the Cinder endpoint from the Keystone service. This could require an update to your automation config files, and the Support team will need to check.
