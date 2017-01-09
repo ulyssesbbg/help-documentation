@@ -53,7 +53,7 @@ Here is an example of the steps that the support technician would need to follow
 
 # openstack service delete ef7a982aaf224c62a09c6e813ac66141
 ```
-Check that automation is correc:;
+Check that automation is correct:
 
 ```
 $ grep -A2 ^cinder ../all.yml 
