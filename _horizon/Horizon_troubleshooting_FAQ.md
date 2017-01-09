@@ -28,7 +28,10 @@ Two workarounds exist:
 
 2. A much faster way of displaying / searching / filtering volumes is to run `openstack volume list --all | grep NAME` (as cloud_admin) or `openstack volume list | grep NAME` (as a user of the project the volumes are in).  You can get more help on managing volumes quickly via the command line at http://docs.openstack.org/user-guide/common/cli-manage-volumes.html
 
-**Q.Why am I getting an error "Unable to retrieve volume limit information." in Horizon?**
-**A.** This error is harmless.  It happens because you do not have any Cinder block storage nodes ordered for your cluster.
+#### Q. What does this error mean? "Error: Unable to retrieve volume limit information."
 
-The error can be resolved by removing the Cinder endpoint from the Keystone service.  This may or may not require an automation config file update so the endpoint doesn't appear again during the next upgrade.  Please open a ticket with our support team requesting removal of the Cinder endpoint.
+Often when I load a page in the Horizon dashboard, I see a little red pop-up that says, "Error: Unable to retrieve volume limit information." What is this error?
+
+This error is harmless, but it happens because you do not have any Cinder block storage in your deployment.
+
+The error can be resolved by removing the Cinder endpoint from the Keystone service. This could require an update to your automation config files, and the Support team will need to check. Please open a support ticket if you need help to resolve this error message.
