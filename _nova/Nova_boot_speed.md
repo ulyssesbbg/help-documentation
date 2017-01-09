@@ -10,8 +10,9 @@ tags: [nova, instance, VM, virtual machine, boot, boot time, speed, slow, fast, 
 
 **What happens behind the scenes on a compute node when I boot a virtual machine?**
 
-Here's an example of a typical 7-second build with a 618MB Red Hat Enterprise Linux 7.2 QCOW2 image, already cached on the compute node, prepared with virt-sparsify and virt-sysprep, and the default m1-medium flavor:
+Here's an example of a typical 7-second build with a 618MB Red Hat Enterprise Linux 7.2 QCOW2 image, already cached on the compute node, prepared with `virt-sparsify` and `virt-sysprep`, and the default `m1-medium` flavor:
 
+```
 19:38:45.816 lock is acquired to build & run instance (0s to acquire lock)
 19:38:45.946 resources are claimed (Memory, Disk, CPU)
 19:38:46.045 network build starts
@@ -23,6 +24,7 @@ Here's an example of a typical 7-second build with a 618MB Red Hat Enterprise Li
 ... instance power state is synchronized with controller database
 19:38:52.196 network virtual interface plugged in
 19:38:52.299 VM instance build complete
+```
 
 If it's taking longer than this, your image may be large, you may be running pre or post-instance creation scripts, you may be associating multiple networks/IPs, or the image may not be cached yet on the compute node you're deploying to.
 
