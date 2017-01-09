@@ -3,9 +3,10 @@ layout: page
 title:  "Horizon Troubleshooting FAQ"
 featured: true
 weight: 8
-tags: [troubleshooting, faq, server, cookie, timezone, quotas, filter]
+tags: [troubleshooting, faq, server, cookie, timezone, quotas, filter, volume limit]
 author: Leslie Lundquist, Ulysses Kanigel
 dateAdded: December 16, 2016
+dateUpdated: January 9, 2017
 
 ---
 
@@ -26,3 +27,8 @@ Two workarounds exist:
 1. Increase your items shown per page in your Horizon user settings to a number greater or equal to the amount of volumes you have, for example, 120.  The caveat here is that if you have a long list of say 120 volumes, it's going to take around ~39 seconds to load the list.  But the filtering will work across the whole set of 120 volumes instead of just the first 20 displayed.
 
 2. A much faster way of displaying / searching / filtering volumes is to run `openstack volume list --all | grep NAME` (as cloud_admin) or `openstack volume list | grep NAME` (as a user of the project the volumes are in).  You can get more help on managing volumes quickly via the command line at http://docs.openstack.org/user-guide/common/cli-manage-volumes.html
+
+**Q.Why am I getting an error "Unable to retrieve volume limit information." in Horizon?**
+**A.** This error is harmless.  It happens because you do not have any Cinder block storage nodes ordered for your cluster.
+
+The error can be resolved by removing the Cinder endpoint from the Keystone service.  This may or may not require an automation config file update so the endpoint doesn't appear again during the next upgrade.  Please open a ticket with our support team requesting removal of the Cinder endpoint.
