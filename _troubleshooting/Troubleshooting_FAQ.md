@@ -10,12 +10,12 @@ dateAdded: August 19, 2016
 ---
 #### Table of Contents
 
- * [How Can I Tell When My Virtual Machine Last Rebooted?](#)
- * [What should I do if my instance froze and stopped responding?](#what-should-i-do-if-my-instance-froze-and-stopped-responding)
- * [Why can’t I resize my instance from `m1.tiny` to `m1.medium`?](#why-cant-i-resize-my-instance-from-m1tiny-to-m1medium)
- * [What causes stuck ports in Neutron?](#what-causes-stuck-ports-in-neutron)
- * [What ports need to be open for OpenStack?](#what-ports-need-to-be-open-for-openstack)
- * [What does this error mean? "Error: Unable to retrieve volume limit information."](#what-does-this-error-mean-error-unable-to-retrieve-volume-limit-information)
+ * [How Can I Tell When My Virtual Machine Last Rebooted?]({{ site.baseurl }}/_troubleshooting/#how-can-i-tell-when-my-virtual-machine-last-rebooted)
+ * [What should I do if my instance froze and stopped responding?]({{ site.baseurl }}/_troubleshooting/#what-should-i-do-if-my-instance-froze-and-stopped-responding)
+ * [Why can’t I resize my instance from `m1.tiny` to `m1.medium`?]({{ site.baseurl }}/_troubleshooting/#why-cant-i-resize-my-instance-from-m1tiny-to-m1medium)
+ * [What causes stuck ports in Neutron?]({{ site.baseurl }}/_troubleshooting/#what-causes-stuck-ports-in-neutron)
+ * [What ports need to be open for OpenStack?]({{ site.baseurl }}/_troubleshooting/#what-ports-need-to-be-open-for-openstack)
+ * [What does this error mean? "Error: Unable to retrieve volume limit information."]({{ site.baseurl }}/_troubleshooting/#what-does-this-error-mean-error-unable-to-retrieve-volume-limit-information)
  
 #### Q. How Can I Tell When My Virtual Machine Last Rebooted?
 
