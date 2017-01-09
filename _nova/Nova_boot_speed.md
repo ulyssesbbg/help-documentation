@@ -6,7 +6,7 @@ featured: true
 author: Ulysses Kanigel
 editor: Leslie Lundquist
 weight: 4
-tags: [nova, instance, VM, virtual machine, boot, boot time, speed, slow, fast, glance, image, size]
+tags: [nova, instance, VM, virtual, boot, time, speed, slow, fast, glance, image, size]
 ---
 
 **What happens behind the scenes on a compute node when I boot a virtual machine?**
