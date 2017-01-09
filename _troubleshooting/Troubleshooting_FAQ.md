@@ -99,8 +99,8 @@ If the minimum required set of ports is not open, you may encounter trouble with
 
 #### Q. What does this error mean? "Error: Unable to retrieve volume limit information."
 
-Often when I load a page in the DC Horizon dashboard - I see a little red pop-up that says, "Error: Unable to retrieve volume limit information." What is this error?
+Often when I load a page in the Horizon dashboard, I see a little red pop-up that says, "Error: Unable to retrieve volume limit information." What is this error?
 
 This error is harmless, but it happens because you do not have any Cinder block storage in your deployment.
 
-The error can be resolved by removing the Cinder endpoint from the Keystone service. This could require an update to your automation config files, and the Support team will need to check.
+The error can be resolved by removing the Cinder endpoint from the Keystone service. This could require an update to your automation config files, and the Support team will need to check. Please open a support ticket if you need help to resolve this error message.
