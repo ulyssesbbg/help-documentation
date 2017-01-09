@@ -104,3 +104,30 @@ Often when I load a page in the Horizon dashboard, I see a little red pop-up tha
 This error is harmless, but it happens because you do not have any Cinder block storage in your deployment.
 
 The error can be resolved by removing the Cinder endpoint from the Keystone service. This could require an update to your automation config files, and the Support team will need to check. Please open a support ticket if you need help to resolve this error message.
+
+Here is an example of the steps that the support technician would need to follow:
+
+```
+# openstack endpoint list | grep cinder 
+| 19a90853883049ed92cf4af82a24c0db | RegionOne | cinderv2     | volumev2       | True    | name  | https://... | 
+| 2c3e8d0a15304788a9dc1806917b61ee | RegionOne | cinderv2     | volumev2       | True    | other     | https://... | 
+| 39434faf90484a208b61a517926042b2 | RegionOne | cinderv2     | volumev2       | True    | name2    | https://... | 
+
+# openstack endpoint delete 19a90853883049ed92cf4af82a24c0db 
+# openstack endpoint delete 2c3e8d0a15304788a9dc1806917b61ee 
+# openstack endpoint delete 39434faf90484a208b61a517926042b2 
+
+# openstack service list | grep cinder 
+| ef7a982aaf224c62a09c6e813ac66141 | cinderv2   | volumev2       | 
+
+# openstack service delete ef7a982aaf224c62a09c6e813ac66141
+```
+Check that automation is correct:
+
+```
+$ grep -A2 ^cinder ../all.yml 
+cinder:  
+  enabled: False 
+cinderv2:  
+  enabled: False
+```
