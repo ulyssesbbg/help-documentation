@@ -41,4 +41,4 @@ Instance provisioning always takes longer the first time, because the image has 
 * Set your grub timeout to 0 seconds.
 * Ensure that your images are only as large as they need to be.
 * On each compute node, keep one long-term instance that uses the same backing image as the new instance you're spinning up.  This technique ensures that the `glance-image` cache in _base_ on each compute node is populated.
-* When running your Nova boot command, hard code the UUID for the image, network, and flavor.  This technicque can trim 4 seconds or so from your boot time.
+* When running your Nova boot command, hard code the UUID for the image, network, and flavor.  This technique can trim 4 seconds or so from your boot time.
