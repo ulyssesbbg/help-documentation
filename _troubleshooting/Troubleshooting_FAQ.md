@@ -13,8 +13,8 @@ dateAdded: August 19, 2016
  * [How Can I Tell When My Virtual Machine Last Rebooted?]({{ site.baseurl }}/troubleshooting/Troubleshooting_FAQ.md/#how-can-i-tell-when-my-virtual-machine-last-rebooted)
  * [What should I do if my instance froze and stopped responding?]({{ site.baseurl }}/troubleshooting/Troubleshooting_FAQ.md/#what-should-i-do-if-my-instance-froze-and-stopped-responding)
  * [Why can’t I resize my instance from `m1.tiny` to `m1.medium`?]({{ site.baseurl }}/troubleshooting/Troubleshooting_FAQ.md/#why-cant-i-resize-my-instance-from-m1tiny-to-m1medium)
- * [What causes stuck ports in Neutron?]({{ site.baseurl }}/Troubleshooting_FAQ.md/troubleshooting/#what-causes-stuck-ports-in-neutron)
- * [What ports need to be open for OpenStack?]({{ site.baseurl }}/Troubleshooting_FAQ.md/troubleshooting/#what-ports-need-to-be-open-for-openstack)
+ * [What causes stuck ports in Neutron?]({{ site.baseurl }}/troubleshooting/Troubleshooting_FAQ.md/#what-causes-stuck-ports-in-neutron)
+ * [What ports need to be open for OpenStack?]({{ site.baseurl }}/troubleshooting/Troubleshooting_FAQ.md/#what-ports-need-to-be-open-for-openstack)
  * [What does this error mean? "Error: Unable to retrieve volume limit information."]({{ site.baseurl }}/troubleshooting/Troubleshooting_FAQ.md/#what-does-this-error-mean-error-unable-to-retrieve-volume-limit-information)
  
 #### Q. How Can I Tell When My Virtual Machine Last Rebooted?
