@@ -16,6 +16,7 @@ dateAdded: August 19, 2016
  * [What causes stuck ports in Neutron?]({{ site.baseurl }}/troubleshooting/Troubleshooting_FAQ.md/#what-causes-stuck-ports-in-neutron)
  * [What ports need to be open for OpenStack?]({{ site.baseurl }}/troubleshooting/Troubleshooting_FAQ.md/#what-ports-need-to-be-open-for-openstack)
  * [What does this error mean? "Error: Unable to retrieve volume limit information."]({{ site.baseurl }}/troubleshooting/Troubleshooting_FAQ.md/#what-does-this-error-mean-error-unable-to-retrieve-volume-limit-information)
+ * [Why is access to port 25 not working for my outbound email?]({{ site.baseurl }}/troubleshooting/Troubleshooting_FAQ.md/#why-is-access-to-port-25-not-working-for-my-outbound-email)
  
 #### Q. How Can I Tell When My Virtual Machine Last Rebooted?
 
@@ -131,3 +132,8 @@ cinder:
 cinderv2:  
   enabled: False
 ```
+#### Why is access to port 25 not working for my outbound email?
+
+Please refer to the following article for more information:
+
+https://knowledgelayer.softlayer.com/procedure/outbound-email-port-25
