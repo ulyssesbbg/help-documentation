@@ -134,6 +134,6 @@ cinderv2:
 ```
 #### Why is access to port 25 not working for my outbound email?
 
-Please refer to the following article for more information:
+SoftLayer no longer allows outbound connections through TCP port 25 (SMTP) on new accounts. Please refer to the following article for more information:
 
 https://knowledgelayer.softlayer.com/procedure/outbound-email-port-25
