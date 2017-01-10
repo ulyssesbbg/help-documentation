@@ -21,7 +21,7 @@ A common problem occurs when customers are unable to SSH or ping an instance.  H
 
 6. Double-check that the subnet is attached to a router.  For example, here's an example of a subnet that is not attached to a router and can't route:
 
-```
+{% highlight bash %}
 # neutron subnet-show fd67f721-b243-4a5d-a853-3dd359b5eec6
 +-------------------+---------------------------------------------------+
 | Field             | Value                                             |
@@ -47,7 +47,7 @@ A common problem occurs when customers are unable to SSH or ping an instance.  H
 
 # neutron port-list -c id -c device_owner -c fixed_ips | grep router_interface | grep fd67f721-b243-4a5d-a853-3dd359b5eec6
 # <no results>
-```
+{% endhighlight %}
 
 If you have done all of these steps and you can't get SSH or ping to work, and `ssh -vvv` isn't providing any clues, contact us.  We will check the following items from our side:
 
