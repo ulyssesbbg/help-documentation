@@ -49,7 +49,7 @@ A common problem occurs when customers are unable to SSH or ping an instance.  H
 # <no results>
 {% endhighlight %}
 
-If you have done all of these steps and you can't get SSH or ping to work, and `ssh -vvv` isn't providing any clues, contact us.  We will check the following items from our side:
+If you have done all of these steps and you can't get SSH or ping to work, and `ssh -vvv` isn't providing any clues, [contact us](http://ibm-blue-box-help.github.io/help-documentation/gettingstarted/commonadmin/report-issue/).  We will check the following items from our side:
 
  * Does the public network match the local LAN?
 
