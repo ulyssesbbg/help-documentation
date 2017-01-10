@@ -20,12 +20,12 @@ dateAdded: August 19, 2016
  
 #### Q. How Can I Tell When My Virtual Machine Last Rebooted?
 
-**A.** You can use this command 
+**A.** You can use this command:
+
 ```
 zgrep BOOT_IMAGE /var/log/kern.log* 
 ```
 to see when the host (VM) last booted, and then use that timestamp to look through the logs to check for any clues regarding issues that you may be troubleshooting. 
-
 
 
 #### Q. What should I do if my instance froze and stopped responding?
@@ -132,8 +132,8 @@ cinder:
 cinderv2:  
   enabled: False
 ```
-#### Why is access to port 25 not working for my outbound email?
+#### Q. Why is access to port 25 not working for my outbound email?
 
-SoftLayer no longer allows outbound connections through TCP port 25 (SMTP) on new accounts. Please refer to the following article for more information:
+**A.** SoftLayer no longer allows outbound connections through TCP port 25 (SMTP) on new accounts. Please refer to the following article for more information:
 
-https://knowledgelayer.softlayer.com/procedure/outbound-email-port-25
+[https://knowledgelayer.softlayer.com/procedure/outbound-email-port-25](https://knowledgelayer.softlayer.com/procedure/outbound-email-port-25)
