@@ -2,7 +2,8 @@
 layout: page
 title:  "Why can't I SSH to an instance, or ping it?"
 tags: [troubleshooting, ssh, ping]
-dateAdded: December 10th, 2015
+dateAdded: December 10, 2015
+dateUpdated: January 10, 2017
 featured: true
 ---
 
@@ -18,16 +19,46 @@ A common problem occurs when customers are unable to SSH or ping an instance.  H
 
 5. Check to see if the private subnet and public subnet are connected to the router with `neutron router-show router1`.
 
+6. Double-check that the subnet is attached to a router.  For example, here's an example of a subnet that is not attached to a router and can't route:
+
+```
+# neutron subnet-show fd67f721-b243-4a5d-a853-3dd359b5eec6
++-------------------+---------------------------------------------------+
+| Field             | Value                                             |
++-------------------+---------------------------------------------------+
+| allocation_pools  | {"start": "172.16.39.25", "end": "172.16.39.254"} |
+| cidr              | 172.16.39.0/24                                    |
+| created_at        | 2017-01-09T16:50:48                               |
+| description       |                                                   |
+| dns_nameservers   |                                                   |
+| enable_dhcp       | True                                              |
+| gateway_ip        | 172.16.39.1                                       |
+| host_routes       |                                                   |
+| id                | fd67f721-b243-4a5d-a853-3dd359b5eec6              |
+| ip_version        | 4                                                 |
+| ipv6_address_mode |                                                   |
+| ipv6_ra_mode      |                                                   |
+| name              | snet-data                                         |
+| network_id        | 088a0728-8c80-42f8-bebb-5e8893011009              |
+| subnetpool_id     |                                                   |
+| tenant_id         | 629aef95f3db4f2b991b62fa40aeff39                  |
+| updated_at        | 2017-01-09T16:50:48                               |
++-------------------+---------------------------------------------------+
+
+# neutron port-list -c id -c device_owner -c fixed_ips | grep router_interface | grep fd67f721-b243-4a5d-a853-3dd359b5eec6
+# <no results>
+```
+
 If you have done all of these steps and you can't get SSH or ping to work, and `ssh -vvv` isn't providing any clues, contact us.  We will check the following items from our side:
 
  * Does the public network match the local LAN?
 
-{% highlight bash %}
+```
 ip netns <public namespace id> ping <floating IP>
-{% endhighlight %}
+```
 
  * Is traffic is being routed correctly out of the instance?
 
-{% highlight bash %}
+```
 ip netns exec <private namespace id>
-{% endhighlight %}
+```
