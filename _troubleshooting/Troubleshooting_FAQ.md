@@ -10,13 +10,13 @@ dateAdded: August 19, 2016
 ---
 #### Table of Contents
 
- * [How Can I Tell When My Virtual Machine Last Rebooted?]({{ site.baseurl }}/troubleshooting/Troubleshooting_FAQ.md/#how-can-i-tell-when-my-virtual-machine-last-rebooted)
- * [What should I do if my instance froze and stopped responding?]({{ site.baseurl }}/troubleshooting/Troubleshooting_FAQ.md/#what-should-i-do-if-my-instance-froze-and-stopped-responding)
- * [Why can’t I resize my instance from `m1.tiny` to `m1.medium`?]({{ site.baseurl }}/troubleshooting/Troubleshooting_FAQ.md/#why-cant-i-resize-my-instance-from-m1tiny-to-m1medium)
- * [What causes stuck ports in Neutron?]({{ site.baseurl }}/troubleshooting/Troubleshooting_FAQ.md/#what-causes-stuck-ports-in-neutron)
- * [What ports need to be open for OpenStack?]({{ site.baseurl }}/troubleshooting/Troubleshooting_FAQ.md/#what-ports-need-to-be-open-for-openstack)
- * [What does this error mean? "Error: Unable to retrieve volume limit information."]({{ site.baseurl }}/troubleshooting/Troubleshooting_FAQ.md/#what-does-this-error-mean-error-unable-to-retrieve-volume-limit-information)
- * [Why is access to port 25 not working for my outbound email?]({{ site.baseurl }}/troubleshooting/Troubleshooting_FAQ.md/#why-is-access-to-port-25-not-working-for-my-outbound-email)
+ * [How Can I Tell When My Virtual Machine Last Rebooted?](http://ibm-blue-box-help.github.io/help-documentation/troubleshooting/Troubleshooting_FAQ.md/#how-can-i-tell-when-my-virtual-machine-last-rebooted)
+ * [What should I do if my instance froze and stopped responding?](http://ibm-blue-box-help.github.io/help-documentation/troubleshooting/Troubleshooting_FAQ.md/#what-should-i-do-if-my-instance-froze-and-stopped-responding)
+ * [Why can’t I resize my instance from `m1.tiny` to `m1.medium`?](http://ibm-blue-box-help.github.io/help-documentation/troubleshooting/Troubleshooting_FAQ.md/#why-cant-i-resize-my-instance-from-m1tiny-to-m1medium)
+ * [What causes stuck ports in Neutron?](http://ibm-blue-box-help.github.io/help-documentation/troubleshooting/Troubleshooting_FAQ.md/#what-causes-stuck-ports-in-neutron)
+ * [What ports need to be open for OpenStack?](http://ibm-blue-box-help.github.io/help-documentation/troubleshooting/Troubleshooting_FAQ.md/#what-ports-need-to-be-open-for-openstack)
+ * [What does this error mean? "Error: Unable to retrieve volume limit information."](http://ibm-blue-box-help.github.io/help-documentation/troubleshooting/Troubleshooting_FAQ.md/#what-does-this-error-mean-error-unable-to-retrieve-volume-limit-information)
+ * [Why is access to port 25 not working for my outbound email?](http://ibm-blue-box-help.github.io/help-documentation/troubleshooting/Troubleshooting_FAQ.md/#why-is-access-to-port-25-not-working-for-my-outbound-email)
  
 #### Q. How Can I Tell When My Virtual Machine Last Rebooted?
 
