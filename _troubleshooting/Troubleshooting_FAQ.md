@@ -3,7 +3,7 @@ layout: page
 title:  "Troubleshooting FAQ"
 featured: true
 weight: 8
-tags: [troubleshooting, faq, reboot, instance, timestamp, console, resize, stuck, port, depends_on]
+tags: [faq, reboot, instance, timestamp, console, resize, stuck, port, depends_on, smtp, email, sendgrid]
 author: Leslie Lundquist, Ulysses Kanigel
 dateAdded: August 19, 2016
 
