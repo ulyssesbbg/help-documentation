@@ -19,6 +19,8 @@ editor: Leslie Lundquist
 
 Instance resizing lets an instance change its flavor to a larger flavor. An instance can be resized to a larger flavor **only**. This change incurs a small amount of interruption while the instance is stopped, migrated to a larger-sized flavor, and started again. This resize may also relocate the instance to a new hypervisor.  
 
+Please **DO NOT** update the target flavor (which the instance will be resized to) while the resize process is in progress, otherwise the resize operation may fail and the instance might be put into an ERROR state.
+
 Resizing large instances can be tricky, because it can cause failure if there isn’t enough disk space for the new disk image.
 
 **Note:** There may be a short delay until networking resumes once an instance has been resized or migrated and is in `VERIFY_RESIZE` state.
